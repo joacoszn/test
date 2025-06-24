@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Semillas premium de cannabis en THC Growshop. Amplia selección de variedades.">
+    <meta name="description" content="Semillas premium de cannabis en THC Growshop. Genéticas exclusivas, feminizadas y autoflorecientes de los mejores bancos.">
     <meta name="theme-color" content="#27ae60">
     <meta name="author" content="THC Growshop">
-    <meta property="og:title" content="Semillas de Cannabis - THC Growshop">
-    <meta property="og:description" content="Descubre nuestra selección de semillas de cannabis de alta calidad. Variedades feminizadas, autoflorecientes y regulares.">
+    <meta property="og:title" content="Semillas Premium de Cannabis - THC Growshop">
+    <meta property="og:description" content="Descubre nuestra colección exclusiva de semillas de cannabis. Genéticas premium, feminizadas y autoflorecientes de bancos reconocidos mundialmente.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://thcgrowshop.com/semillas">
-    <meta property="og:image" content="https://thcgrowshop.com/imagenes/Logo.png">
+    <meta property="og:image" content="https://thcgrowshop.com/imagenes/banner.png">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Semillas de Cannabis - THC Growshop</title>
+    <title>Semillas Premium de Cannabis - THC Growshop</title>
     
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="imagenes/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="imagenes/Logo.png">
+    <link rel="apple-touch-icon" href="imagenes/Logo.png">
     <link rel="manifest" href="site.webmanifest">
     
     <!-- Preload de recursos críticos -->
@@ -27,6 +25,7 @@
     <link rel="preload" href="fonts/Bronova Regular.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="fonts/Bronova Bold.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="imagenes/Logo.png" as="image">
+    <link rel="preload" href="data/seeds.json" as="fetch" crossorigin>
     
     <!-- Hojas de estilo -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
@@ -190,7 +189,12 @@
         </div>
     </footer>
 
-    <script type="module" src="js/page-manager.js"></script>
+    <!-- Scripts de servicios -->
+    <script src="js/services/cart.service.js"></script>
+    <script src="js/services/notification.service.js"></script>
+    
+    <!-- Scripts de página -->
+    <script src="js/seeds.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
