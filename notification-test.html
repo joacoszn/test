@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página de prueba para el sistema de notificaciones de THC Growshop">
+  <meta name="theme-color" content="#27AE60">
+  <title>Prueba de Notificaciones - GrowShop</title>
+  
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="imagenes/Logo.png">
+  <link rel="apple-touch-icon" href="imagenes/Logo.png">
+  <link rel="manifest" href="site.webmanifest">
+  <style>
+    /* Estilos específicos para la página de prueba */
+    body[data-page="notification-test"] {
+      background-color: var(--color-bg-light);
+      color: var(--color-text-dark);
+    }
+    
+    body[data-page="notification-test"] .test-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 var(--spacing-lg);
+    }
+    .test-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .btn--success {
+      background-color: var(--color-secondary);
+      color: white;
+    }
+    .btn--success:hover {
+      background-color: var(--color-secondary-dark);
+    }
+    .btn--error {
+      background-color: var(--color-accent);
+      color: white;
+    }
+    .btn--error:hover {
+      background-color: #c0392b;
+    }
+    .btn--warning {
+      background-color: #f39c12;
+      color: white;
+    }
+    .btn--warning:hover {
+      background-color: #d68910;
+    }
+    .btn--info {
+      background-color: #3498db;
+      color: white;
+    }
+    .btn--info:hover {
+      background-color: #2980b9;
+    }
+    h1 {
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+    }
+    .instructions {
+      background-color: var(--color-bg-alt);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--color-secondary);
+    }
+  </style>
+</head>
+<body data-page="notification-test">
+  <header class="main-header" role="banner">
+    <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+      <a href="index.html" class="main-nav__logo-link" aria-label="Ir a inicio">
+        <img src="imagenes/Logo.png" alt="THC Growshop Logo" class="main-nav__logo-img" width="180" height="60">
+      </a>
+      
+      <button class="main-nav__mobile-toggle" aria-expanded="false" aria-controls="main-nav-menu" data-mobile-menu-toggle>
+        <span class="main-nav__toggle-icon" aria-hidden="true"></span>
+        <span class="sr-only">Menú</span>
+      </button>
+      
+      <ul class="main-nav__list" id="main-nav-menu" data-mobile-menu>
+        <li class="main-nav__item">
+          <a href="index.html" class="main-nav__link">Inicio</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="productos.html" class="main-nav__link">Productos</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="semillas.html" class="main-nav__link">Semillas</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="#contacto" class="main-nav__link">Contacto</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main class="container">
+    <div class="test-container">
+      <h1 class="page-title">Prueba del Sistema de Notificaciones</h1>
+      
+      <div class="instructions">
+        <p>Esta página te permite probar los diferentes tipos de notificaciones disponibles en el sistema.</p>
+        <p>Haz clic en cualquiera de los botones para ver una notificación de ejemplo.</p>
+      </div>
+      
+      <div class="test-buttons">
+        <button id="btn-success" class="btn btn--primary">Notificación de Éxito</button>
+        <button id="btn-error" class="btn btn--danger">Notificación de Error</button>
+        <button id="btn-warning" class="btn btn--warning">Notificación de Advertencia</button>
+        <button id="btn-info" class="btn btn--info">Notificación Informativa</button>
+        <button id="btn-custom" class="btn" style="background-color: #9b59b6; color: white;">Notificación Personalizada</button>
+        <button id="btn-multiple" class="btn" style="background-color: #1abc9c; color: white;">Múltiples Notificaciones</button>
+      </div>
+    </div>
+  
+  </main>
+
+  <footer class="main-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">THC Growshop</h3>
+          <p>Tu tienda de cultivo de confianza con los mejores productos para el autocultivo.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Enlaces rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="semillas.html">Semillas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <p>Email: info@thcgrowshop.com</p>
+          <p>Teléfono: +54 9 11 1234-5678</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2024</span> THC Growshop. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module">
+    // Importar el servicio de notificaciones
+    import NotificationService from './js/services/notification.service.js';
+    
+    // Inicializar el servicio de notificaciones
+    const notificationService = new NotificationService();
+    
+    // Hacer el servicio disponible globalmente para pruebas
+    window.notificationService = notificationService;
+    
+    // Configurar manejadores de eventos para los botones de prueba
+    document.addEventListener('DOMContentLoaded', () => {
+      // Actualizar año en el footer
+      const currentYear = new Date().getFullYear();
+      const yearElement = document.getElementById('current-year');
+      if (yearElement) {
+        yearElement.textContent = currentYear;
+      }
+      
+      // Verificar que los botones existan antes de agregar los listeners
+      const successBtn = document.getElementById('btn-success');
+      const errorBtn = document.getElementById('btn-error');
+      const warningBtn = document.getElementById('btn-warning');
+      const infoBtn = document.getElementById('btn-info');
+      const customBtn = document.getElementById('btn-custom');
+      const multipleBtn = document.getElementById('btn-multiple');
+      
+      if (successBtn) {
+        successBtn.addEventListener('click', () => {
+          notificationService.success('¡Operación completada con éxito!');
+        });
+      }
+      
+      if (errorBtn) {
+        errorBtn.addEventListener('click', () => {
+          notificationService.error('Ha ocurrido un error al procesar la solicitud.');
+        });
+      }
+      
+      if (warningBtn) {
+        warningBtn.addEventListener('click', () => {
+          notificationService.warning('Esta acción no se puede deshacer.');
+        });
+      }
+      
+      if (infoBtn) {
+        infoBtn.addEventListener('click', () => {
+          notificationService.info('Tienes 3 mensajes sin leer.');
+        });
+      }
+      
+      if (customBtn) {
+        customBtn.addEventListener('click', () => {
+          notificationService.show('Esta es una notificación personalizada con duración extendida.', 'info', 6000);
+        });
+      }
+      
+      if (multipleBtn) {
+        multipleBtn.addEventListener('click', () => {
+          notificationService.success('Primera notificación');
+          setTimeout(() => notificationService.info('Segunda notificación'), 300);
+          setTimeout(() => notificationService.warning('Tercera notificación'), 600);
+          setTimeout(() => notificationService.error('Cuarta notificación'), 900);
+        });
+      }
+    });
+  </script>
+  
+  <!-- Script principal -->
+  <script src="js/main.js"></script>
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__content">
+      <p class="site-footer__copyright">&copy; <span id="currentYear"></span> THC Growshop. Todos los derechos reservados.</p>
+  </div>
+</footer>
+  
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

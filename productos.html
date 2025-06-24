@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Equipamiento premium para cultivo en THC Growshop. Encuentra todo lo necesario para tu cultivo indoor y outdoor.">
+    <meta name="theme-color" content="#27ae60">
+    <meta name="author" content="THC Growshop">
+    <meta property="og:title" content="Equipamiento de Cultivo - THC Growshop">
+    <meta property="og:description" content="Encuentra el mejor equipamiento para tu cultivo en THC Growshop. Productos de alta calidad para cultivo indoor y outdoor.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thcgrowshop.com/productos">
+    <meta property="og:image" content="https://thcgrowshop.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Equipamiento de Cultivo - THC Growshop</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="imagenes/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="fonts/Bronova Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/Bronova Bold.ttf" as="font" type="font/ttf" crossorigin>
+    
+    <!-- Preload de imágenes críticas -->
+    <link rel="preload" href="imagenes/Logo.png" as="image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page page--productos">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Header -->
+    <header class="main-header" role="banner">
+        <div class="container">
+            <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+                <a href="index.html" class="main-nav__logo-link" aria-label="Ir a inicio">
+                    <img src="imagenes/Logo.png" alt="THC Growshop Logo" class="main-nav__logo-img">
+                </a>
+                
+                <!-- Menú de navegación -->
+                <button class="main-nav__mobile-toggle" aria-expanded="false" aria-controls="main-nav-menu" data-mobile-menu-toggle>
+                    <span class="main-nav__toggle-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Menú</span>
+                </button>
+                
+                <ul class="main-nav__list" id="main-nav-menu" data-mobile-menu>
+                    <li class="main-nav__item"><a href="index.html" class="main-nav__link">Inicio</a></li>
+                    <li class="main-nav__item"><a href="productos.html" class="main-nav__link main-nav__link--active" aria-current="page">Equipamiento</a></li>
+                    <li class="main-nav__item"><a href="semillas.html" class="main-nav__link">Semillas</a></li>
+                    <li class="main-nav__item"><a href="index.html#sobre-nosotros" class="main-nav__link">Sobre Nosotros</a></li>
+                    <li class="main-nav__item"><a href="#contacto" class="main-nav__link">Contacto</a></li>
+                </ul>
+                
+                <!-- Carrito y búsqueda -->
+                <div class="header__actions">
+                    <button class="header__search-toggle" aria-label="Buscar">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                    
+                    <a href="carrito.html" class="header__cart" aria-label="Carrito de compras">
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="header__cart-count cart-count">0</span>
+                        <span class="sr-only">Artículos en el carrito: </span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Búsqueda móvil -->
+        <div class="header__search">
+            <div class="container">
+                <form class="search-form" role="search" aria-label="Buscar productos">
+                    <label for="search" class="sr-only">Buscar productos</label>
+                    <input type="search" 
+                           id="search" 
+                           class="search-form__input" 
+                           name="q"
+                           placeholder="Buscar productos..."
+                           aria-label="Buscar productos">
+                    <button type="submit" class="search-form__submit" aria-label="Buscar">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Equipamiento de Cultivo</h1>
+            <p class="lead">Todo lo que necesitas para tu cultivo en un solo lugar</p>
+        </div>
+    </section>
+
+    <main id="main-content" class="main" role="main">
+        <div class="container">
+            <!-- Filtros de productos -->
+            <div class="filters-container" id="filters-container">
+                <div class="filters-grid">
+                    <!-- Buscador -->
+                    <div class="filter-group search-container">
+                        <label for="search-input" class="filter-label">Buscar</label>
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="search" 
+                               id="search-input" 
+                               class="search-input" 
+                               placeholder="Buscar productos..."
+                               aria-label="Buscar productos">
+                    </div>
+                    
+                    <!-- Filtro por categoría -->
+                    <div class="filter-group">
+                        <label for="category-filter" class="filter-label">Categoría</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="todos">Todas las categorías</option>
+                            <option value="iluminacion">Iluminación</option>
+                            <option value="ventilacion">Ventilación</option>
+                            <option value="extractores">Extractores</option>
+                            <option value="filtros">Filtros de Carbón</option>
+                            <option value="macetas">Macetas</option>
+                            <option value="sustratos">Sustratos</option>
+                            <option value="fertilizantes">Fertilizantes</option>
+                            <option value="herramientas">Herramientas</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Filtro por precio -->
+                    <div class="filter-group">
+                        <label for="price-filter" class="filter-label">Rango de precios</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="todos">Todos los precios</option>
+                            <option value="0-10000">$0 - $10,000</option>
+                            <option value="10000-20000">$10,000 - $20,000</option>
+                            <option value="20000-50000">$20,000 - $50,000</option>
+                            <option value="50000-100000">$50,000 - $100,000</option>
+                            <option value="100000">Más de $100,000</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Ordenar por -->
+                    <div class="filter-group">
+                        <label for="sort-by" class="filter-label">Ordenar por</label>
+                        <select id="sort-by" class="filter-select">
+                            <option value="relevancia">Relevancia</option>
+                            <option value="nombre">Nombre (A-Z)</option>
+                            <option value="nombre-desc">Nombre (Z-A)</option>
+                            <option value="precio-asc">Precio: Menor a Mayor</option>
+                            <option value="precio-desc">Precio: Mayor a Menor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grid de productos -->
+            <div id="product-grid-container" class="product-grid">
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1592924686775-a232d0a915ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Panel LED 600W" class="product-card__image">
+                        <span class="product-card__badge">Nuevo</span>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Iluminación</span>
+                        <h3 class="product-card__title">Panel LED 600W Full Spectrum</h3>
+                        <p class="product-card__description">Panel LED profesional para cultivo con espectro completo y alta eficiencia energética.</p>
+                        <div class="product-card__footer">
+                            <div class="product-card__pricing">
+                                <span class="product-card__price">$89,999</span>
+                                <span class="product-card__price-original">$99,999</span>
+                            </div>
+                            <div class="product-card__actions">
+                                <button class="product-card__action-btn" aria-label="Añadir a favoritos">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-card__action-btn" aria-label="Ver detalles">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1617859047451-8514046000e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sustrato Premium" class="product-card__image">
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Sustratos</span>
+                        <h3 class="product-card__title">Sustrato Premium 50L</h3>
+                        <p class="product-card__description">Mezcla profesional con nutrientes esenciales para un crecimiento óptimo.</p>
+                        <div class="product-card__footer">
+                            <div class="product-card__pricing">
+                                <span class="product-card__price">$24,999</span>
+                            </div>
+                            <div class="product-card__actions">
+                                <button class="product-card__action-btn" aria-label="Añadir a favoritos">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-card__action-btn" aria-label="Ver detalles">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sistema de Riego" class="product-card__image">
+                        <span class="product-card__badge product-card__badge--sale">Oferta</span>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Riego</span>
+                        <h3 class="product-card__title">Sistema de Riego Automático</h3>
+                        <p class="product-card__description">Kit completo para riego automático con programador digital y goteros regulables.</p>
+                        <div class="product-card__footer">
+                            <div class="product-card__pricing">
+                                <span class="product-card__price">$45,999</span>
+                                <span class="product-card__price-original">$52,999</span>
+                            </div>
+                            <div class="product-card__actions">
+                                <button class="product-card__action-btn" aria-label="Añadir a favoritos">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-card__action-btn" aria-label="Ver detalles">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Fertilizante" class="product-card__image">
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Nutrientes</span>
+                        <h3 class="product-card__title">Fertilizante Orgánico 1L</h3>
+                        <p class="product-card__description">Fórmula avanzada con microorganismos beneficiosos para un crecimiento vigoroso.</p>
+                        <div class="product-card__footer">
+                            <div class="product-card__pricing">
+                                <span class="product-card__price">$12,999</span>
+                            </div>
+                            <div class="product-card__actions">
+                                <button class="product-card__action-btn" aria-label="Añadir a favoritos">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-card__action-btn" aria-label="Ver detalles">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 5 -->
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Semillas" class="product-card__image">
+                        <span class="product-card__badge">Nuevo</span>
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Semillas</span>
+                        <h3 class="product-card__title">Pack Semillas Premium</h3>
+                        <p class="product-card__description">Selección de 5 variedades de semillas feminizadas de alta genética.</p>
+                        <div class="product-card__footer">
+                            <div class="product-card__pricing">
+                                <span class="product-card__price">$32,999</span>
+                            </div>
+                            <div class="product-card__actions">
+                                <button class="product-card__action-btn" aria-label="Añadir a favoritos">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-card__action-btn" aria-label="Ver detalles">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 6 -->
+                <article class="product-card">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Kit Herramientas" class="product-card__image">
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__category">Herramientas</span>
+                        <h3 class="product-card__title">Kit de Herramientas Premium</h3>
+                        <p class="product-card__description">Set completo con tijeras, pinzas y accesorios para el cuidado de tus plantas.</p>
+                        <div class="product-card__footer">
+                            <div class="product-card__pricing">
+                                <span class="product-card__price">$18,999</span>
+                                <span class="product-card__price-original">$24,999</span>
+                            </div>
+                            <div class="product-card__actions">
+                                <button class="product-card__action-btn" aria-label="Añadir a favoritos">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="product-card__action-btn" aria-label="Ver detalles">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Los productos se cargarán aquí dinámicamente -->
+                <div class="product-grid__loading" style="display: none;">
+                    <div class="spinner" role="status">
+                        <span class="sr-only">Cargando productos...</span>
+                    </div>
+                    <p>Cargando productos...</p>
+                </div>
+                
+                <!-- Mensaje de sin resultados (oculto por defecto) -->
+                <div class="no-results" style="display: none;">
+                    <div class="no-results__icon">
+                        <i class="far fa-search"></i>
+                    </div>
+                    <h3 class="no-results__title">No se encontraron productos</h3>
+                    <p class="no-results__message">No hay productos que coincidan con tu búsqueda. Intenta con otros filtros o términos de búsqueda.</p>
+                    <button class="btn btn--secondary" id="reset-filters">
+                        <i class="fas fa-sync-alt"></i> Restablecer filtros
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Paginación -->
+            <nav class="pagination" aria-label="Navegación de productos" id="pagination-container">
+                <a href="#" class="pagination__link pagination__link--disabled" aria-label="Página anterior" id="prev-page">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <div class="pagination__pages" id="pagination-pages">
+                    <a href="#" class="pagination__link pagination__link--active" data-page="1" aria-current="page">1</a>
+                    <a href="#" class="pagination__link" data-page="2">2</a>
+                    <a href="#" class="pagination__link" data-page="3">3</a>
+                    <a href="#" class="pagination__link" data-page="4">4</a>
+                    <a href="#" class="pagination__link" data-page="5">5</a>
+                </div>
+                <a href="#" class="pagination__link" aria-label="Página siguiente" id="next-page">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </nav>
+            
+            <!-- Mensaje de sin resultados -->
+            <div id="no-results" class="no-results" hidden>
+                <div class="no-results__icon">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </div>
+                <h2 class="no-results__title">No se encontraron productos</h2>
+                <p class="no-results__message">No hay productos que coincidan con tu búsqueda. Intenta con otros filtros.</p>
+                <button id="reset-filters" class="btn btn--outline">
+                    <i class="fas fa-redo" aria-hidden="true"></i> Restablecer filtros
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__content">
+            <p class="site-footer__copyright">&copy; <span id="currentYear"></span> THC Growshop. Todos los derechos reservados.</p>
+            
+            <nav class="site-footer__nav" aria-label="Navegación de pie de página">
+                <ul class="site-footer__nav-list">
+                    <li><a href="index.html" class="site-footer__nav-link">Inicio</a></li>
+                    <li><a href="productos.html" class="site-footer__nav-link">Productos</a></li>
+                    <li><a href="semillas.html" class="site-footer__nav-link">Semillas</a></li>
+                    <li><a href="#sobre-nosotros" class="site-footer__nav-link">Sobre Nosotros</a></li>
+                    <li><a href="#" class="site-footer__nav-link">Términos y Condiciones</a></li>
+                    <li><a href="#" class="site-footer__nav-link">Política de Privacidad</a></li>
+                </ul>
+            </nav>
+            
+            <div class="site-footer__socials">
+                <a href="#" class="site-footer__social-link" aria-label="Síguenos en Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="site-footer__social-link" aria-label="Síguenos en Facebook">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="site-footer__social-link" aria-label="Síguenos en Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botón de ir arriba -->
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+    
+    <!-- Scripts -->
+    <script type="module" src="/js/app.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Actualizar año actual en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Inicializar menú móvil
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('primary-menu');
+            const searchToggle = document.getElementById('search-toggle');
+            const searchForm = document.getElementById('header-search');
+            const backToTop = document.getElementById('back-to-top');
+            
+            // Toggle menú móvil
+            if (menuToggle && menu) {
+                menuToggle.addEventListener('click', () => {
+                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                    menu.classList.toggle('is-open');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            // Toggle búsqueda
+            if (searchToggle && searchForm) {
+                searchToggle.addEventListener('click', () => {
+                    const isExpanded = searchToggle.getAttribute('aria-expanded') === 'true';
+                    searchToggle.setAttribute('aria-expanded', !isExpanded);
+                    searchForm.hidden = !searchForm.hidden;
+                    
+                    if (!searchForm.hidden) {
+                        document.getElementById('global-search').focus();
+                    }
+                });
+            }
+            
+            // Botón de ir arriba
+            if (backToTop) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTop.classList.add('is-visible');
+                    } else {
+                        backToTop.classList.remove('is-visible');
+                    }
+                });
+                
+                backToTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+    
+    <!-- Script para actualizar el año actual en el footer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
