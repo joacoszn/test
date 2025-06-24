@@ -1,0 +1,62 @@
+[
+  {
+    "id": "led001",
+    "nombre": "Quantum Board 240W",
+    "categoria": "iluminacion",
+    "categoriaDisplay": "Iluminación",
+    "descripcion": "Panel LED de espectro completo para cultivo indoor.",
+    "precio": 19999,
+    "imagen": "assets/images/led-quantum-240w.jpg",
+    "alt": "Panel LED Quantum Board 240W"
+  },
+  {
+    "id": "led002",
+    "nombre": "Quantum Board 480W",
+    "categoria": "iluminacion",
+    "categoriaDisplay": "Iluminación",
+    "descripcion": "Alta eficiencia y cobertura para grandes espacios de cultivo.",
+    "precio": 34900,
+    "imagen": "assets/images/led-quantum-480w.jpg",
+    "alt": "Panel LED Quantum Board 480W"
+  },
+  {
+    "id": "acc001",
+    "nombre": "Temporizador Digital",
+    "categoria": "accesorios",
+    "categoriaDisplay": "Accesorios",
+    "descripcion": "Control preciso para ciclos de luz y riego.",
+    "precio": 2499,
+    "imagen": "assets/images/temporizador-digital.jpg",
+    "alt": "Temporizador Digital"
+  },
+  {
+    "id": "acc002",
+    "nombre": "Medidor de PH Digital",
+    "categoria": "accesorios",
+    "categoriaDisplay": "Accesorios",
+    "descripcion": "Esencial para el balance de nutrientes en el agua.",
+    "precio": 3500,
+    "imagen": "assets/images/medidor-ph-digital.jpg",
+    "alt": "Medidor de PH Digital"
+  },
+  {
+    "id": "sus001",
+    "nombre": "Sustrato Light Mix 50L",
+    "categoria": "sustratos",
+    "categoriaDisplay": "Sustratos",
+    "descripcion": "Mezcla premium para desarrollo óptimo de raíces.",
+    "precio": 2999,
+    "imagen": "assets/images/sustrato-light-mix.jpg",
+    "alt": "Sustrato Light Mix 50L"
+  },
+  {
+    "id": "sus002",
+    "nombre": "Fibra de Coco Premium 20L",
+    "categoria": "sustratos",
+    "categoriaDisplay": "Sustratos",
+    "descripcion": "Excelente aireación y retención de humedad.",
+    "precio": 1850,
+    "imagen": "assets/images/fibra-coco.jpg",
+    "alt": "Fibra de Coco Premium 20L"
+  }
+]
