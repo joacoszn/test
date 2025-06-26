@@ -158,11 +158,12 @@ ESTRUCTURA:
        padding: 0;
    }
    
-   /* Estilos base para páginas con fondo claro */
+   /* Todas las páginas tienen fondo negro premium */
    body[data-page="productos"],
-   body[data-page="semillas"] {
-       background-color: var(--color-bg-light);
-       color: var(--color-text-dark);
+   body[data-page="semillas"],
+   body[data-page="carrito"] {
+       background-color: var(--color-bg-dark);
+       color: var(--color-text-light);
    }
    
    main {
@@ -2615,25 +2616,27 @@ ESTRUCTURA:
        box-shadow: 0 0 0 3px var(--color-focus-ring);
    }
 
-   /* Grid de semillas */
+   /* Grid de semillas - Más compacto y minimalista */
    .product-grid {
        display: grid;
-       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-       gap: var(--spacing-xl);
+       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+       gap: var(--spacing-md);
        margin-bottom: var(--spacing-xxl);
    }
 
-   /* Tarjeta de semilla */
+   /* Tarjeta de semilla - Elegante y minimalista */
    .seed-card {
-       background: var(--color-bg-card);
+       background: rgba(255, 255, 255, 0.02);
+       border: 1px solid rgba(255, 255, 255, 0.08);
        border-radius: var(--border-radius);
-       box-shadow: var(--shadow);
+       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
        overflow: hidden;
        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
        display: flex;
        flex-direction: column;
        height: 100%;
        position: relative;
+       backdrop-filter: blur(10px);
    }
 
    .seed-card:hover {
