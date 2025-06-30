@@ -1,0 +1,34 @@
+{
+  "name": "thc-growshop",
+  "version": "1.0.0",
+  "description": "E-commerce web application for cannabis growing equipment and seeds",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 live-server.py",
+    "start": "python3 live-server.py",
+    "serve": "python3 live-server.py",
+    "lint": "echo 'No linting configured yet'",
+    "test": "echo 'No tests configured yet'"
+  },
+  "keywords": [
+    "ecommerce",
+    "growshop",
+    "cannabis",
+    "cultivation",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "THC Growshop",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

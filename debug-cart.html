@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Cart - THC Growshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .debug-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            background: white;
+        }
+        .btn {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-primary { background: #27ae60; color: white; }
+        .btn-secondary { background: #3498db; color: white; }
+        .btn-danger { background: #e74c3c; color: white; }
+        .log {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .status.success { background: #d5f4e6; color: #27ae60; }
+        .status.error { background: #fdf2f2; color: #e74c3c; }
+        .status.warning { background: #fef9e7; color: #f39c12; }
+    </style>
+</head>
+<body>
+    <h1>🛒 THC Growshop - Debug del Carrito</h1>
+    
+    <div class="debug-panel">
+        <h2>🔧 Controles de Debug</h2>
+        <button class="btn btn-danger" onclick="clearAllData()">Limpiar localStorage</button>
+        <button class="btn btn-secondary" onclick="reinitializeServices()">Reinicializar Servicios</button>
+        <button class="btn btn-primary" onclick="testCartFunctionality()">Test Completo</button>
+        <button class="btn btn-secondary" onclick="showCartStatus()">Estado del Carrito</button>
+    </div>
+
+    <div class="debug-panel">
+        <h2>📊 Estado de los Servicios</h2>
+        <div id="service-status"></div>
+    </div>
+
+    <div class="debug-panel">
+        <h2>🧪 Producto de Prueba</h2>
+        <div class="product-card">
+            <h3 class="product-card__title">Quantum Board 240W (TEST)</h3>
+            <p class="product-card__category">Iluminación</p>
+            <p class="product-card__price">$19,999</p>
+            <button class="btn btn-primary" 
+                    data-action="add-to-cart" 
+                    data-product-id="test-led001">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Agregar al Carrito</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="debug-panel">
+        <h2>📋 Log de Eventos</h2>
+        <div id="log" class="log"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/services/notification.service.js"></script>
+    <script src="js/services/cart.service.js"></script>
+    <script src="js/unified-cart-controller.js"></script>
+
+    <script>
+        // Sistema de logging
+        const logger = {
+            log: (message, type = 'info') => {
+                const timestamp = new Date().toLocaleTimeString();
+                const logEl = document.getElementById('log');
+                const color = {
+                    'info': '#3498db',
+                    'success': '#27ae60',
+                    'error': '#e74c3c',
+                    'warning': '#f39c12'
+                }[type] || '#ecf0f1';
+                
+                logEl.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+                logEl.scrollTop = logEl.scrollHeight;
+                console.log(`[DEBUG] ${message}`);
+            }
+        };
+
+        // Funciones de debug
+        function clearAllData() {
+            localStorage.clear();
+            logger.log('🗑️ localStorage limpiado completamente', 'warning');
+            location.reload();
+        }
+
+        function reinitializeServices() {
+            logger.log('🔄 Reinicializando servicios...', 'info');
+            
+            // Limpiar instancias existentes
+            delete window.CartService;
+            delete window.cartService;
+            delete window.NotificationService;
+            delete window.unifiedCartController;
+            
+            // Recargar página para reinicializar
+            setTimeout(() => location.reload(), 500);
+        }
+
+        function testCartFunctionality() {
+            logger.log('🧪 Iniciando test completo del carrito...', 'info');
+            
+            // Test 1: Verificar servicios
+            const cartService = window.CartService;
+            const notificationService = window.NotificationService;
+            const cartController = window.unifiedCartController;
+            
+            logger.log(`CartService: ${cartService ? '✅' : '❌'}`, cartService ? 'success' : 'error');
+            logger.log(`NotificationService: ${notificationService ? '✅' : '❌'}`, notificationService ? 'success' : 'error');
+            logger.log(`UnifiedCartController: ${cartController ? '✅' : '❌'}`, cartController ? 'success' : 'error');
+            
+            if (!cartService || !notificationService) {
+                logger.log('❌ Servicios no disponibles, abortando test', 'error');
+                return;
+            }
+            
+            // Test 2: Agregar producto de prueba
+            const testProduct = {
+                id: 'test-led001',
+                name: 'Quantum Board 240W (TEST)',
+                price: 19999,
+                category: 'Iluminación',
+                image: 'imagenes/Logo.png'
+            };
+            
+            logger.log('📦 Agregando producto de prueba...', 'info');
+            const result = cartService.addItem(testProduct, 1);
+            
+            if (result.success) {
+                logger.log('✅ Producto agregado exitosamente', 'success');
+                logger.log(`Items en carrito: ${cartService.getCart().totalItems}`, 'info');
+            } else {
+                logger.log(`❌ Error al agregar producto: ${result.error}`, 'error');
+            }
+            
+            // Test 3: Verificar persistencia
+            setTimeout(() => {
+                const cart = cartService.getCart();
+                logger.log(`🔍 Verificando persistencia: ${cart.items.length} items`, cart.items.length > 0 ? 'success' : 'warning');
+            }, 100);
+        }
+
+        function showCartStatus() {
+            const cartService = window.CartService;
+            if (!cartService) {
+                logger.log('❌ CartService no disponible', 'error');
+                return;
+            }
+            
+            const cart = cartService.getCart();
+            logger.log('📊 Estado actual del carrito:', 'info');
+            logger.log(`- Items: ${cart.totalItems}`, 'info');
+            logger.log(`- Subtotal: $${cart.subtotal}`, 'info');
+            logger.log(`- Total: $${cart.total}`, 'info');
+            logger.log(`- Productos únicos: ${cart.items.length}`, 'info');
+            
+            cart.items.forEach((item, index) => {
+                logger.log(`  ${index + 1}. ${item.name} (x${item.quantity}) - $${item.price}`, 'info');
+            });
+        }
+
+        function updateServiceStatus() {
+            const statusEl = document.getElementById('service-status');
+            const cartService = window.CartService;
+            const notificationService = window.NotificationService;
+            const cartController = window.unifiedCartController;
+            
+            const cart = cartService ? cartService.getCart() : null;
+            
+            statusEl.innerHTML = `
+                <div class="status ${cartService ? 'success' : 'error'}">
+                    <strong>CartService:</strong> ${cartService ? '✅ Activo' : '❌ No disponible'}
+                    ${cart ? `<br>Items: ${cart.totalItems} | Total: $${cart.total}` : ''}
+                </div>
+                <div class="status ${notificationService ? 'success' : 'error'}">
+                    <strong>NotificationService:</strong> ${notificationService ? '✅ Activo' : '❌ No disponible'}
+                </div>
+                <div class="status ${cartController ? 'success' : 'error'}">
+                    <strong>UnifiedCartController:</strong> ${cartController ? '✅ Activo' : '❌ No disponible'}
+                </div>
+            `;
+        }
+
+        // Intercepción de eventos del carrito
+        document.addEventListener('cart:updated', (e) => {
+            logger.log('📢 Evento cart:updated recibido', 'success');
+            updateServiceStatus();
+        });
+
+        document.addEventListener('cart:item-added', (e) => {
+            logger.log(`📢 Producto agregado: ${e.detail.name}`, 'success');
+        });
+
+        document.addEventListener('cart:item-removed', (e) => {
+            logger.log(`📢 Producto eliminado: ${e.detail.name}`, 'warning');
+        });
+
+        // Intercepción de clicks en botones de carrito
+        document.addEventListener('click', (e) => {
+            const button = e.target.closest('[data-action="add-to-cart"]');
+            if (button) {
+                logger.log(`👆 Click interceptado en botón de carrito (ID: ${button.dataset.productId})`, 'info');
+            }
+        });
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            logger.log('🚀 Debug panel iniciado', 'info');
+            
+            // Actualizar estado cada segundo
+            setInterval(updateServiceStatus, 1000);
+            
+            // Log inicial
+            setTimeout(() => {
+                logger.log('🔍 Verificando servicios iniciales...', 'info');
+                updateServiceStatus();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

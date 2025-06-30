@@ -6,8 +6,9 @@
     "categoriaDisplay": "Iluminación",
     "descripcion": "Panel LED de espectro completo para cultivo indoor.",
     "precio": 19999,
-    "imagen": "assets/images/led-quantum-240w.jpg",
-    "alt": "Panel LED Quantum Board 240W"
+    "imagen": "imagenes/led-quantum-240w.jpg",
+    "disponible": true,
+    "destacado": false
   },
   {
     "id": "led002",
@@ -16,8 +17,9 @@
     "categoriaDisplay": "Iluminación",
     "descripcion": "Alta eficiencia y cobertura para grandes espacios de cultivo.",
     "precio": 34900,
-    "imagen": "assets/images/led-quantum-480w.jpg",
-    "alt": "Panel LED Quantum Board 480W"
+    "imagen": "imagenes/led-quantum-480w.jpg",
+    "disponible": true,
+    "destacado": true
   },
   {
     "id": "acc001",
@@ -26,8 +28,9 @@
     "categoriaDisplay": "Accesorios",
     "descripcion": "Control preciso para ciclos de luz y riego.",
     "precio": 2499,
-    "imagen": "assets/images/temporizador-digital.jpg",
-    "alt": "Temporizador Digital"
+    "imagen": "imagenes/temporizador-digital.jpg",
+    "disponible": true,
+    "destacado": false
   },
   {
     "id": "acc002",
@@ -36,8 +39,9 @@
     "categoriaDisplay": "Accesorios",
     "descripcion": "Esencial para el balance de nutrientes en el agua.",
     "precio": 3500,
-    "imagen": "assets/images/medidor-ph-digital.jpg",
-    "alt": "Medidor de PH Digital"
+    "imagen": "imagenes/medidor-ph-digital.jpg",
+    "disponible": true,
+    "destacado": false
   },
   {
     "id": "sus001",
@@ -46,8 +50,9 @@
     "categoriaDisplay": "Sustratos",
     "descripcion": "Mezcla premium para desarrollo óptimo de raíces.",
     "precio": 2999,
-    "imagen": "assets/images/sustrato-light-mix.jpg",
-    "alt": "Sustrato Light Mix 50L"
+    "imagen": "imagenes/sustrato-light-mix.jpg",
+    "disponible": true,
+    "destacado": false
   },
   {
     "id": "sus002",
@@ -56,7 +61,30 @@
     "categoriaDisplay": "Sustratos",
     "descripcion": "Excelente aireación y retención de humedad.",
     "precio": 1850,
-    "imagen": "assets/images/fibra-coco.jpg",
-    "alt": "Fibra de Coco Premium 20L"
+    "imagen": "imagenes/fibra-coco.jpg",
+    "disponible": true,
+    "destacado": false
+  },
+  {
+    "id": "fert001",
+    "nombre": "BioGrow Crecimiento 1L",
+    "categoria": "fertilizantes",
+    "categoriaDisplay": "Fertilizantes",
+    "descripcion": "Fertilizante orgánico para etapa de crecimiento vegetativo.",
+    "precio": 4200,
+    "imagen": "imagenes/biogrow-crecimiento.jpg",
+    "disponible": true,
+    "destacado": false
+  },
+  {
+    "id": "fert002",
+    "nombre": "BloomMax Floración 1L",
+    "categoria": "fertilizantes",
+    "categoriaDisplay": "Fertilizantes",
+    "descripcion": "Potenciador de floración para máximos rendimientos.",
+    "precio": 4800,
+    "imagen": "imagenes/bloommax-floracion.jpg",
+    "disponible": true,
+    "destacado": true
   }
 ]

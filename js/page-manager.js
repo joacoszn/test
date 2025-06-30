@@ -1,19 +1,17 @@
 /*
 ==================================================
-ARCHIVO: js/page-manager.js (¡NUEVO ARCHIVO UNIFICADO!)
+ARCHIVO: js/page-manager.js (UNIFIED PAGE MANAGER)
 ==================================================
 OBJETIVO:
 Este script maneja la lógica para las páginas de 'productos' y 'semillas',
 eliminando la duplicación de código. Detecta en qué página se encuentra
 y carga la configuración, los datos y los filtros correspondientes.
 */
-import Producto from '../../models/Producto.js';
-import Semilla from '../../models/Semilla.js';
 
-// URLs de los archivos de datos (simulando una API)
+// URLs de los archivos de datos
 const DATA_URLS = {
-    productos: 'api/products.json',
-    semillas: 'api/seeds.json'
+    productos: 'data/products.json',
+    semillas: 'data/seeds.json'
 };
 
 // Función para cargar datos desde un archivo JSON

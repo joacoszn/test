@@ -109,14 +109,136 @@
     </header>
 
     <main id="main-content" role="main">
+        <!-- Hero Section Premium -->
         <section class="page-landing__hero" id="inicio">
             <div class="page-landing__hero-content">
-                <img src="imagenes/Logo.png" alt="THC Growshop Logo" class="page-landing__logo" width="200" height="67" loading="eager">
-                <h1 class="page-landing__title">CULTIVÁ CALIDAD & FUMÁ CALIDAD.</h1>
-                <p class="page-landing__tagline">La tienda #1 de cultivo en Argentina.</p>
+                <div class="page-landing__logo-container">
+                    <img src="imagenes/Logo.png" alt="THC Growshop Logo" class="page-landing__logo" width="200" height="67" loading="eager">
+                </div>
+                <h1 class="page-landing__title">
+                    <span class="page-landing__title-line">CULTIVÁ CALIDAD</span>
+                    <span class="page-landing__title-divider">&</span>
+                    <span class="page-landing__title-line">FUMÁ CALIDAD</span>
+                </h1>
+                <p class="page-landing__tagline">La tienda #1 de cultivo en Argentina</p>
                 <div class="page-landing__cta-container">
-                    <a href="semillas.html" class="btn btn--primary btn--lg page-landing__cta">Ver Semillas</a>
-                    <a href="productos.html" class="btn btn--secondary btn--lg page-landing__cta">Ver Equipamiento</a>
+                    <a href="semillas.html" class="btn btn--primary btn--lg page-landing__cta">
+                        <i class="fas fa-seedling" aria-hidden="true"></i>
+                        <span>Explorar Semillas</span>
+                    </a>
+                    <a href="productos.html" class="btn btn--secondary btn--lg page-landing__cta">
+                        <i class="fas fa-tools" aria-hidden="true"></i>
+                        <span>Ver Equipamiento</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Decorative Elements -->
+            <div class="hero-decoration">
+                <div class="hero-decoration__line hero-decoration__line--top"></div>
+                <div class="hero-decoration__line hero-decoration__line--bottom"></div>
+                <div class="hero-decoration__dots">
+                    <span class="hero-decoration__dot"></span>
+                    <span class="hero-decoration__dot"></span>
+                    <span class="hero-decoration__dot"></span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Premium Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-medal" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="feature-card__title">Calidad Premium</h3>
+                        <p class="feature-card__description">Productos seleccionados de los mejores proveedores mundiales</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="feature-card__title">Envío Gratis</h3>
+                        <p class="feature-card__description">En compras superiores a $50.000 por toda Argentina</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-user-shield" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="feature-card__title">Compra Segura</h3>
+                        <p class="feature-card__description">Transacciones protegidas y datos seguros</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <i class="fas fa-headset" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="feature-card__title">Soporte 24/7</h3>
+                        <p class="feature-card__description">Asesoramiento profesional cuando lo necesites</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Categories Preview Section -->
+        <section class="categories-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nuestras Especialidades</h2>
+                    <p class="section-subtitle">Descubre lo mejor en cultivo profesional</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card category-card--large">
+                        <div class="category-card__content">
+                            <div class="category-card__header">
+                                <i class="fas fa-seedling category-card__icon" aria-hidden="true"></i>
+                                <h3 class="category-card__title">Semillas Premium</h3>
+                            </div>
+                            <p class="category-card__description">Genéticas exclusivas de los bancos más reconocidos</p>
+                            <div class="category-card__stats">
+                                <span class="category-card__stat">
+                                    <strong>12+</strong> variedades
+                                </span>
+                                <span class="category-card__stat">
+                                    <strong>5★</strong> calificación
+                                </span>
+                            </div>
+                            <a href="semillas.html" class="category-card__cta">
+                                Explorar <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-card__content">
+                            <div class="category-card__header">
+                                <i class="fas fa-lightbulb category-card__icon" aria-hidden="true"></i>
+                                <h3 class="category-card__title">Iluminación</h3>
+                            </div>
+                            <p class="category-card__description">Sistemas LED de última generación</p>
+                            <a href="productos.html" class="category-card__cta">
+                                Ver más <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-card__content">
+                            <div class="category-card__header">
+                                <i class="fas fa-leaf category-card__icon" aria-hidden="true"></i>
+                                <h3 class="category-card__title">Nutrientes</h3>
+                            </div>
+                            <p class="category-card__description">Fertilizantes orgánicos premium</p>
+                            <a href="productos.html" class="category-card__cta">
+                                Descubrir <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

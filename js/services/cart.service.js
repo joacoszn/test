@@ -13,12 +13,15 @@ class CartService {
         
         this.storageKey = 'thc_growshop_cart';
         this.observers = new Set();
-        this.cart = this.loadCart();
+        
+        // ✅ CORREGIDO: Inicializar config ANTES de loadCart
         this.config = {
             maxQuantityPerItem: 99,
             freeShippingThreshold: 50000,
             maxItemsInCart: 50
         };
+        
+        this.cart = this.loadCart();
         
         CartService.instance = this;
         return this;
@@ -485,9 +488,16 @@ class CartService {
 }
 
 // Crear y exportar instancia singleton
-if (!window.CartService) {
-    window.CartService = new CartService();
+if (typeof window !== 'undefined') {
+    if (!window.CartService) {
+        window.CartService = new CartService();
+    }
+    
+    // Hacer disponible como cartService también
+    if (!window.cartService) {
+        window.cartService = window.CartService;
+    }
+    
+    // Congelar el objeto para prevenir modificaciones
+    Object.freeze(window.CartService);
 }
-
-// Congelar el objeto para prevenir modificaciones
-Object.freeze(window.CartService);

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Carrito de compras - THC Growshop. Revisa tus productos seleccionados y finaliza tu compra.">
-    <meta name="theme-color" content="#27ae60">
+    <meta name="description" content="Carrito de compras - THC Growshop Premium. Revisa tus productos seleccionados y finaliza tu compra de manera elegante y segura.">
+    <meta name="theme-color" content="#D4AF37">
     <meta name="author" content="THC Growshop">
-    <title>Carrito de Compras - THC Growshop</title>
+    <title>Carrito Premium - THC Growshop | Finaliza Tu Compra</title>
     
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="imagenes/Logo.png">
@@ -23,7 +23,7 @@
           crossorigin="anonymous" 
           referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page page--carrito" data-page="carrito">
@@ -126,24 +126,24 @@
                         </div>
                         
                         <!-- Cupones de descuento -->
-                        <div class="cart-section">
-                            <div class="coupon-section">
-                                <h3 class="coupon-section__title">¿Tienes un cupón de descuento?</h3>
-                                <form class="coupon-form" id="coupon-form">
-                                    <div class="coupon-form__group">
-                                        <input type="text" 
-                                               id="coupon-code" 
-                                               class="coupon-form__input" 
-                                               placeholder="Ingresa tu código de cupón"
-                                               aria-label="Código de cupón">
-                                        <button type="submit" class="coupon-form__submit btn btn--outline">
-                                            Aplicar Cupón
-                                        </button>
-                                    </div>
-                                    <div id="coupon-message" class="coupon-message" role="alert"></div>
-                                </form>
+                            <div class="cart-section">
+                                <div class="coupon-section">
+                                    <h3 class="coupon-section__title">¿Tienes un cupón de descuento?</h3>
+                                    <form class="coupon-form" id="coupon-form">
+                                        <div class="coupon-form__group">
+                                            <input type="text" 
+                                                   id="coupon-code" 
+                                                   class="coupon-form__input" 
+                                                   placeholder="Ingresa tu código de cupón"
+                                                   aria-label="Código de cupón">
+                                            <button type="submit" class="coupon-form__submit">
+                                                Aplicar Cupón
+                                            </button>
+                                        </div>
+                                        <div id="coupon-message" class="coupon-message" role="alert"></div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
                     </div>
                     
                     <!-- Resumen del pedido -->
@@ -263,6 +263,7 @@
     <!-- Scripts -->
     <script src="js/services/cart.service.js"></script>
     <script src="js/services/notification.service.js"></script>
+    <script src="js/unified-cart-controller.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
 </body>

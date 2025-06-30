@@ -1,12 +1,12 @@
 /**
- * Punto de entrada principal de la aplicación
- * @module app
+ * APLICACIÓN PRINCIPAL THC GROWSHOP
+ * Sistema unificado y profesional
+ * @version 3.0.0
  */
 
-import { cartService } from './services/cart.service.js';
-import { notificationService } from './services/notification.service.js';
-import { createProductCard, renderProductList } from './components/ProductCard.js';
+// Importar servicios principales
 import { loadProducts, loadSeeds } from './services/api.service.js';
+import { notificationService } from './services/notification.service.js';
 
 /**
  * Configuración global de la aplicación
@@ -73,14 +73,19 @@ class GrowShopApp {
    */
   initializeServices() {
     // Hacer servicios disponibles globalmente
-    window.cartService = cartService;
-    window.notificationService = notificationService;
+    if (window.CartService) {
+      window.cartService = window.CartService;
+    }
+    if (window.NotificationService) {
+      window.notificationService = window.NotificationService;
+    }
     
     // Inicializar contador del carrito
     this.updateCartCounter();
     
     // Escuchar eventos del carrito
-    window.addEventListener('cartUpdated', () => this.updateCartCounter());
+    window.addEventListener('cart:updated', () => this.updateCartCounter());
+    document.addEventListener('cart:updated', () => this.updateCartCounter());
   }
 
   /**
@@ -199,7 +204,11 @@ class GrowShopApp {
    * Actualiza el contador del carrito
    */
   updateCartCounter() {
-    const count = cartService.getTotalItems();
+    if (!window.cartService && !window.CartService) return;
+    
+    const cartService = window.cartService || window.CartService;
+    const cartData = cartService.getCart();
+    const count = cartData.totalItems || 0;
     const counters = document.querySelectorAll(APP_CONFIG.selectors.cartCount);
     
     counters.forEach(counter => {
@@ -229,6 +238,43 @@ class GrowShopApp {
         behavior: 'smooth'
       });
     });
+  }
+
+  /**
+   * Actualiza el año actual en el footer
+   */
+  /**
+   * Inicializa eventos para los botones de acción
+   */
+  initializeActionButtons() {
+    document.body.addEventListener('click', (event) => {
+      const addToCartBtn = event.target.closest('.add-to-cart');
+      if (addToCartBtn) {
+        const productId = addToCartBtn.dataset.productId;
+        this.handleProductAddToCart(productId);
+      }
+      if (addToCartBtn) {
+        const productId = addToCartBtn.dataset.productId;
+        const product = this.getProductById(productId);
+        if (product) {
+          cartService.addItem(product);
+          notificationService.notify('Producto agregado al carrito', 'success');
+        }
+      }
+    });
+  }
+
+  /**
+   * Obtiene el objeto del producto por ID
+   * @param {string} id - ID del producto
+   * @returns {Object|null} Producto o null si no existe
+   */
+  getProductById(id) {
+    const allProducts = [
+      ...window.products || [],
+      ...window.seeds || []
+    ];
+    return allProducts.find(p => p.id === id) || null;
   }
 
   /**

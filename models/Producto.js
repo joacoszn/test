@@ -58,36 +58,58 @@ class Producto {
    */
   crearTarjeta() {
     const precioFormateado = this._formatearPrecio();
+    const isInCart = window.CartService ? window.CartService.hasItem(this.id) : false;
+    const disponible = this.disponible !== false; // Default true if not specified
 
     return `
-      <article class="card product-card" data-id="${this.id}" data-categoria="${this.categoria}">
-        <a href="#" class="card__link" aria-label="Ver detalles de ${this.nombre}">
-          <div class="card__image-container">
-            <img 
-              src="${this.imagen}" 
-              alt="${this.alt}" 
-              class="card__image" 
-              loading="lazy"
-              width="300"
-              height="200"
-            >
-          </div>
-          <div class="card__content">
-            <span class="card__category">${this.categoriaDisplay}</span>
-            <h3 class="card__title">${this.nombre}</h3>
-            <p class="card__description">${this.descripcion}</p>
-            <div class="card__footer">
-              <p class="card__price">${precioFormateado}</p>
-              <button 
-                class="btn btn--primary btn--sm add-to-cart" 
-                data-product-id="${this.id}"
-                aria-label="Agregar ${this.nombre} al carrito"
-              >
-                Agregar
+      <article class="product-card" data-id="${this.id}" data-categoria="${this.categoria}">
+        <div class="product-card__image-container">
+          <img 
+            src="${this.imagen}" 
+            alt="${this.alt}" 
+            class="product-card__image" 
+            loading="lazy"
+            width="300"
+            height="200"
+            onerror="this.src='imagenes/Logo.png'"
+          >
+          ${this.destacado ? '<span class="product-card__badge product-card__badge--featured">Destacado</span>' : ''}
+        </div>
+        <div class="product-card__content">
+          <span class="product-card__category">${this.categoriaDisplay}</span>
+          <h3 class="product-card__title">${this.nombre}</h3>
+          <p class="product-card__description">${this.descripcion}</p>
+          <div class="product-card__footer">
+            <div class="product-card__pricing">
+              <span class="product-card__price">${precioFormateado}</span>
+              ${this.precioOriginal && this.precioOriginal > this.precio ? 
+                `<span class="product-card__original-price">$${this.precioOriginal.toLocaleString()}</span>` : 
+                ''}
+            </div>
+            <div class="product-card__actions">
+              <button class="product-card__action-btn product-card__action-btn--wishlist" 
+                      data-action="wishlist" 
+                      data-product-id="${this.id}"
+                      aria-label="Agregar a favoritos">
+                <i class="far fa-heart"></i>
+              </button>
+              <button class="product-card__action-btn product-card__action-btn--info" 
+                      data-action="info" 
+                      data-product-id="${this.id}"
+                      aria-label="Ver información detallada">
+                <i class="fas fa-info-circle"></i>
+              </button>
+              <button class="product-card__add-to-cart ${isInCart ? 'product-card__add-to-cart--in-cart' : ''}" 
+                      data-action="add-to-cart" 
+                      data-product-id="${this.id}"
+                      ${!disponible ? 'disabled' : ''}
+                      aria-label="${isInCart ? 'Ya en el carrito' : 'Agregar al carrito'}">
+                <i class="fas ${isInCart ? 'fa-check' : 'fa-shopping-cart'}"></i>
+                <span>${isInCart ? 'En Carrito' : (disponible ? 'Agregar' : 'Agotado')}</span>
               </button>
             </div>
           </div>
-        </a>
+        </div>
       </article>
     `;
   }

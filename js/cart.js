@@ -7,13 +7,28 @@
 
 class CartController {
     constructor() {
-        this.cartService = window.CartService;
-        this.notificationService = window.NotificationService;
+        // Referencias a servicios con fallback
+        this.cartService = window.CartService || window.cartService;
+        this.notificationService = window.NotificationService || window.notificationService;
         this.DOM = this.cacheDOMElements();
         this.state = {
             appliedCoupon: null,
             isLoading: false
         };
+        
+        // Verificar servicios
+        if (!this.cartService) {
+            console.error('CartService no disponible en CartController');
+            // Reintentar en un momento
+            setTimeout(() => {
+                this.cartService = window.CartService || window.cartService;
+                if (this.cartService) {
+                    console.log('✅ CartService ahora disponible, inicializando...');
+                    this.init();
+                }
+            }, 500);
+            return;
+        }
         
         this.init();
     }
@@ -67,7 +82,7 @@ class CartController {
         
         // Delegación de eventos para items dinámicos
         this.DOM.cartItemsList?.addEventListener('click', (e) => this.handleItemAction(e));
-        this.DOM.cartItemsList?.addEventListener('change', (e) => this.handleQuantityChange(e));
+        this.DOM.cartItemsList?.addEventListener('change', (e) => this.handleQuantityInputChange(e));
     }
 
     /**
@@ -279,9 +294,9 @@ class CartController {
     }
 
     /**
-     * Maneja cambios en la cantidad de productos
+     * Maneja cambios en la cantidad de productos (input directo)
      */
-    handleQuantityChange(e) {
+    handleQuantityInputChange(e) {
         if (e.target.classList.contains('quantity-input')) {
             const productId = e.target.dataset.productId;
             const newQuantity = parseInt(e.target.value);
@@ -301,12 +316,20 @@ class CartController {
     handleQuantityChange(productId, delta) {
         const currentQuantity = this.cartService.getItemQuantity(productId);
         const newQuantity = currentQuantity + delta;
-        
+
         if (newQuantity > 0) {
             this.cartService.updateQuantity(productId, newQuantity);
         } else {
             this.handleRemoveItem(productId);
         }
+    }
+
+    /**
+     * Obtiene el objeto del producto por ID
+     */
+    getProductById(id) {
+        const allProducts = [...window.products || [], ...window.seeds || []];
+        return allProducts.find(p => p.id === id) || null;
     }
 
     /**
@@ -463,7 +486,11 @@ class CartController {
     }
 }
 
-// Inicializar cuando el DOM esté listo
+// ✅ Auto-inicialización SOLO para carrito.html
 document.addEventListener('DOMContentLoaded', () => {
-    new CartController();
+    // Solo inicializar si estamos en la página del carrito
+    if (document.body.classList.contains('page--carrito')) {
+        console.log('🛒 Inicializando CartController para carrito.html');
+        new CartController();
+    }
 });

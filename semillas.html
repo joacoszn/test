@@ -90,12 +90,6 @@
         </div>
     </header>
 
-    <section class="promo-banner">
-        <div class="promo-banner__content">
-            <img src="imagenes/banner.png" alt="GrowShop Banner Logo" class="promo-banner__logo">
-        </div>
-    </section>
-
     <main id="main-content" class="main" role="main">
         <div class="container">
             <!-- Hero Section -->
@@ -108,9 +102,14 @@
             <div class="filters-container" id="filters-container">
                 <div class="filters-grid">
                     <!-- Buscador -->
-                    <div class="filter-group">
-                        <label for="search" class="filter-label">Buscar</label>
-                        <input type="text" id="search" class="filter-input" placeholder="Buscar semillas...">
+                    <div class="filter-group search-container">
+                        <label for="search-input" class="filter-label">Buscar</label>
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="search" 
+                               id="search-input" 
+                               class="search-input" 
+                               placeholder="Buscar semillas..."
+                               aria-label="Buscar semillas">
                     </div>
                     
                     <!-- Filtro por tipo -->
@@ -192,6 +191,9 @@
     <!-- Scripts de servicios -->
     <script src="js/services/cart.service.js"></script>
     <script src="js/services/notification.service.js"></script>
+    
+    <!-- Controlador unificado del carrito -->
+    <script src="js/unified-cart-controller.js"></script>
     
     <!-- Scripts de página -->
     <script src="js/seeds.js"></script>
